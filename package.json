@@ -1,0 +1,37 @@
+{
+  "name": "mediaPlayer",
+  "version": "",
+  "description": "Media player for Team Amy app",
+  "author": "Nam",
+  "license": "",
+  "engines": {
+    "node": ">=6.13.0"
+  },
+  "scripts": {
+    "build": "webpack -d --config webpack.config.js --watch",
+    "start": "nodemon server/index.js",
+    "seed" : "node db/seedDB.js"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "body-parser": "^1.18.3",
+    "eslint": "^5.15.3",
+    "express": "^4.16.4",
+    "faker": "^4.1.0",
+    "install": "^0.12.2",
+    "jquery": "^3.3.1",
+    "mongoose": "^5.4.20",
+    "nodemon": "^1.18.10",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "babel-loader": "^8.0.5",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}
