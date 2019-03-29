@@ -44,7 +44,7 @@ volumeUp(){
   }
 
 get(){
-  $.get('/media', (data) => {
+  $.get('/media/1', (data) => {
     console.log(data)
     this.setState({
       albumData:data,
