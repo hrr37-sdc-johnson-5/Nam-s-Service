@@ -45,7 +45,7 @@ const seedDB = () => {
           {track: faker.random.words(4)},
           {track: faker.random.words(2)},
           {track: faker.random.words(3)},
-          {track: faker.random.words(5)},
+          {track: faker.random.words(5)}
         ],
       artistDescription: faker.lorem.paragraph(),
       coverArt: faker.image.imageUrl()
@@ -56,7 +56,7 @@ const seedDB = () => {
   }
 }
 
-const getData = (id,callback) => {
+const getData = (id, callback) => {
   Album.find({'id': id}, (err,data)=> {
     if (err) {
       console.error(err);

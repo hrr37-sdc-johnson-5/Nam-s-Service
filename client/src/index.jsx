@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import Audioplayer from './Audioplayer.jsx';
 
 class Music extends React.Component {
   constructor(props) {
@@ -12,7 +13,9 @@ class Music extends React.Component {
     album:[],
     albumData: {},
     audio: new Audio(""),
-    url: ""
+    url: "",
+    time: "0:00",
+    intervalId: null
   }
 
   this.playtrack = this.playtrack.bind(this)
@@ -21,10 +24,25 @@ class Music extends React.Component {
   this.changeTrack = this.changeTrack.bind(this)
   this.volumeDown = this.volumeDown.bind(this)
   this.volumeUp = this.volumeUp.bind(this)
-
+  this.currentTrackTime =this.currentTrackTime.bind(this)
 }
 componentDidMount(){
   this.get();
+  var intervalId = setInterval(this.currentTrackTime, 1000);
+  this.setState({intervalId: intervalId});
+}
+componentWillUnmount() {
+  // use intervalId from the state to clear the interval
+  clearInterval(this.state.intervalId);
+}
+currentTrackTime(){
+  var songTime =(parseInt(((this.state.audio.currentTime/60)-(parseInt(this.state.audio.currentTime/60)))*60));
+  var seconds = songTime < 10? "0"+ songTime: songTime
+
+  this.setState({
+    time: (parseInt(this.state.audio.currentTime/60))+":"+ seconds
+
+  })
 }
 
 playtrack(){
@@ -51,20 +69,23 @@ get(){
       album: data[0].album,
       currentTrack: data[0].album[0].track,
       audio: new Audio(data[0].album[0].url),
-      url:data[0].album[0].url
+      url:data[0].album[0].url,
+      time: this.state.audio.currentTime,
+
     })
   })
 }
-displayDuration(){
-  this.state.audio.duration
-}
+
 changeTrack(e){
+  this.state.audio.pause();
   console.log(e.target.id)
   this.setState({
     currentTrack: this.state.album[e.target.id].track,
     audio: new Audio(this.state.album[e.target.id].url),
     url:this.state.album[e.target.id].url
   })
+  this.state.audio.pause();
+
 }
 render() {
 
@@ -72,12 +93,13 @@ return (
   <div>
     <button onClick={this.volumeDown}>Volume down</button>
     <button onClick={this.volumeUp}>Volume up</button>
-    <div>{this.state.currentTrack}{this.state.audio.duration/60}</div>
+    <div>{this.state.currentTrack}   {this.state.time}/{(parseInt(this.state.audio.duration/60))+":"+
+    (parseInt(((this.state.audio.duration/60)-(parseInt(this.state.audio.duration/60)))*60))}</div>
     <button onClick={this.playtrack}>Play</button>
     <button onClick={this.pausetrack}>Pause</button>
     <button onClick={this.get}>Refresh</button>
     {this.state.album.map((song,index) => {
-      return <div onClick = {(e) => {this.changeTrack(e)}} id = {index} >{song.track}</div>
+      return <div onClick = {(e) => {this.changeTrack(e)}} id = {index} >{index+1}.) {song.track}</div>
     })}
   </div>
   );
