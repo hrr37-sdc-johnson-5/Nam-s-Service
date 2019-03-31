@@ -10,7 +10,8 @@
   "scripts": {
     "build": "webpack -d --config webpack.config.js --watch",
     "start": "nodemon server/index.js",
-    "seed" : "node db/seedDB.js"
+    "seed": "node db/seedDB.js",
+    "test": "jest"
   },
   "dependencies": {
     "@babel/cli": "^7.2.3",
@@ -24,13 +25,19 @@
     "mongoose": "^5.4.20",
     "nodemon": "^1.18.10",
     "react": "^16.8.5",
-    "react-dom": "^16.8.5"
+    "react-dom": "^16.8.5",
+    "react-motion": "^0.5.2",
+    "styled-components": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "babel-loader": "^8.0.5",
+    "babel-plugin-styled-components": "^1.10.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^24.5.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   }

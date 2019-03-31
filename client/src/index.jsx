@@ -1,7 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import Audioplayer from './Audioplayer.jsx';
+import styled from 'styled-components';
+
+const Button= styled.button`
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
+
+const Play = styled.button`
+  border-top: 10px solid white;
+  border-bottom: 10px solid white;
+  border-left: 20px solid black;
+  height: 0px;
+`
+
 
 class Music extends React.Component {
   constructor(props) {
@@ -63,7 +79,6 @@ volumeUp(){
 
 get(){
   $.get('/media/1', (data) => {
-    console.log(data)
     this.setState({
       albumData:data,
       album: data[0].album,
@@ -87,15 +102,17 @@ changeTrack(e){
   this.state.audio.pause();
 
 }
+
+
+
 render() {
 
 return (
-  <div>
-    <button onClick={this.volumeDown}>Volume down</button>
-    <button onClick={this.volumeUp}>Volume up</button>
-    <div>{this.state.currentTrack}   {this.state.time}/{(parseInt(this.state.audio.duration/60))+":"+
+  <div><i className="fa fa-play fa-2x" ></i>
+    <Button onClick={this.volumeDown}>Volume down</Button>
+    <Button onClick={this.volumeUp}>Volume up</Button>
+    <div><Play onClick={this.playtrack}></Play> {this.state.currentTrack}   {this.state.time}/{(parseInt(this.state.audio.duration/60))+":"+
     (parseInt(((this.state.audio.duration/60)-(parseInt(this.state.audio.duration/60)))*60))}</div>
-    <button onClick={this.playtrack}>Play</button>
     <button onClick={this.pausetrack}>Pause</button>
     <button onClick={this.get}>Refresh</button>
     {this.state.album.map((song,index) => {
@@ -106,8 +123,7 @@ return (
 }
 }
 
-ReactDOM.render(
-<Music />,
-document.getElementById('app')
-);
-// ReactDOM.render(<audio src = "http://streaming.tdiradio.com:8000/house.mp3">woo</audio>, document.getElementById('app'));
+ReactDOM.render(<Music />,document.getElementById('app'));
+
+module.exports = App;
+
