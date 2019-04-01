@@ -123,7 +123,7 @@ return (
 }
 }
 
-ReactDOM.render(<Music />,document.getElementById('app'));
+// ReactDOM.render(<Music />,document.getElementById('app'));
 
-module.exports = App;
+export default Music;
 

@@ -16,6 +16,7 @@
   "dependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.5.0",
     "body-parser": "^1.18.3",
     "eslint": "^5.15.3",
     "express": "^4.16.4",
