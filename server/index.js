@@ -15,7 +15,9 @@ app.use(bodyParser.json())
 
 app.get('/media/:id', (req,res) =>{
   var id = req.params.id;
+
   db.getData(id, (data) => {
+    res.sendStatus(200);
     res.json(data)
   })
 })
