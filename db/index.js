@@ -11,6 +11,7 @@ db.once('open', function() {
 let albumSchema = mongoose.Schema({
   id: Number,
   artist: String,
+  albumTitle: String,
   album: Array, //urls
   artistDescription: String,
   coverArt: String
@@ -22,6 +23,7 @@ const seedDB = () => {
   let data = new Album({
     id:1,
     artist: "DerricksBand",
+    albumTitle: faker.random.words(2),
     album: [
       {track: "I know that song", url: "https://t4.bcbits.com/stream/14b5d317d227cbb92a247096babf17c2/mp3-128/4260926291?p=0&ts=1553898963&t=34c7414c35c90ffd4190b04228f466d3a17d8400&token=1553898963_f453e37fcfeb7505c6dddff666a4f7b400393d60"},
       {track: "Emo phase", url: "https://t4.bcbits.com/stream/ccb10f2dbdf1b043cbb141acefe160ab/mp3-128/3707812484?p=0&ts=1553898963&t=283eeeef41e6001dbd6bc689f31676e98060b011&token=1553898963_039f5f61e7bf9e36425740ce44d0702cd6d73774"},
@@ -39,7 +41,8 @@ const seedDB = () => {
   for (let i = 2; i < 52; i++) {
     let data = new Album({
       id: i,
-      artist: faker.name.jobDescriptor(),
+      artist: faker.random.words(2),
+      albumTitle: faker.random.words(2),
       album:
         [
           {track: faker.random.words(4)},
