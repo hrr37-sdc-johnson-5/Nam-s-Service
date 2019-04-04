@@ -22,14 +22,14 @@ let Album =mongoose.model('Albums', albumSchema);
 const seedDB = () => {
   let data = new Album({
     id:1,
-    artist: "DerricksBand",
-    albumTitle: faker.random.words(2),
+    artist: "DerAnaM",
+    albumTitle: 'Fancy Electric Cows ',
     album: [
-      {track: "I know that song", url: "https://t4.bcbits.com/stream/14b5d317d227cbb92a247096babf17c2/mp3-128/4260926291?p=0&ts=1553898963&t=34c7414c35c90ffd4190b04228f466d3a17d8400&token=1553898963_f453e37fcfeb7505c6dddff666a4f7b400393d60"},
-      {track: "Emo phase", url: "https://t4.bcbits.com/stream/ccb10f2dbdf1b043cbb141acefe160ab/mp3-128/3707812484?p=0&ts=1553898963&t=283eeeef41e6001dbd6bc689f31676e98060b011&token=1553898963_039f5f61e7bf9e36425740ce44d0702cd6d73774"},
-      {track: "Rack Heactor", url: "https://t4.bcbits.com/stream/15a96ce6c433491b3d220c2ca0bb53b1/mp3-128/1748762823?p=0&ts=1553898963&t=64d049ef4b96d3ae4446cb4f952085381e5a81c3&token=1553898963_166fa1289e37cda2dae722c0c010ea4a1755b3ae"},
+      {track: "I know that song", url: "https://t4.bcbits.com/stream/aa6994e3bf7d69e603d5591a87ae0b6b/mp3-128/1451147182?p=0&ts=1554496726&t=2e14a8a610c4390787c5fcf5feb0416874bc17ba&token=1554496726_792d09f4c1bf1cebd1b904d2f9667ff65e62c1b5"},
+      {track: "Emo phase", url: "https://t4.bcbits.com/stream/b8973e3485e07a46b062a7fe28fc21d0/mp3-128/2707041858?p=0&ts=1554496726&t=892d9ddabe922ac845c06d7eee07232d0050c808&token=1554496726_5d104e578833869bc86b6ffde97b4507f6dc5863"},
+      {track: "Rack Heactor", url: "https://t4.bcbits.com/stream/4ee5936410f3b7698e1c9704aa378177/mp3-128/3490725998?p=0&ts=1554496726&t=b3b266bc1b6f2386c24f5e41b1da34a48eb1ed52&token=1554496726_05450ff97dc2235acb139ef6fce5c45f9d6514f9"},
       {track: "Hulu and rave", url: "http://streaming.tdiradio.com:8000/house.mp3"},
-      {track: "Team Amy is lit", url:"https://t4.bcbits.com/stream/32bd148543172f29113a3b9b928f3c8f/mp3-128/2095787844?p=0&ts=1553898963&t=6e3c6488006211578bbd0c6edf58cc1a205fb3a0&token=1553898963_9bf349994798d2afb8046c262bd4e7ea6f2653c3"}
+      {track: "Team Amy is lit", url:"https://t4.bcbits.com/stream/433f368c059111443bb91eeb4fc1ef41/mp3-128/1446101469?p=0&ts=1554496886&t=7ce79b87bfdf5eba517c1ba971d2548ddf8ac062&token=1554496886_1006bc3b47a063ab69bd5c5c98865a703e1eb1e0"}
     ],
     artistDescription: faker.lorem.paragraph(),
     coverArt: faker.image.imageUrl()
