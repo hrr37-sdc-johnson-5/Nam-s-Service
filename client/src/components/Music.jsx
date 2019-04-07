@@ -175,7 +175,7 @@ const Wrapper = styled.section`
   background: #3858AD;
   color: #F8EAEB;
   width: 400px;
-  height: 1000px;
+  height: auto;
   font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 `
 const Links = styled.a`
