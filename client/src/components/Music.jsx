@@ -104,6 +104,9 @@ changeTrack(e){
 
 render() {
 
+  let songDuration = (parseInt(this.state.audio.duration/60))+":"+
+  (parseInt(((this.state.audio.duration/60)-(parseInt(this.state.audio.duration/60)))*60)) || '0:00';
+
   return (
     <Wrapper>
       <br></br>
@@ -111,8 +114,7 @@ render() {
         <div style = {{fontSize: "20px"}}>By <Links>{this.state.artist}</Links></div>
       </Title>
       <MediaContainer>
-        <SongTitle> {this.state.currentTrack}&nbsp;&nbsp;&nbsp;&nbsp;{this.state.time}/{(parseInt(this.state.audio.duration/60))+":"+
-            (parseInt(((this.state.audio.duration/60)-(parseInt(this.state.audio.duration/60)))*60)) || '0:00'}</SongTitle>
+        <SongTitle> {this.state.currentTrack}&nbsp;&nbsp;&nbsp;&nbsp;{this.state.time}/{songDuration}</SongTitle>
         <PlayButton><PlaySymbol onClick={this.playTrack} playing = {this.state.play}></PlaySymbol></PlayButton>
             <Slider type="range" min="0" max={this.state.audio.duration} value = {this.state.sliderValue || 0} step = "1" onChange = {this.handleSlider}/>
         <VolDown onClick={this.volumeDown}> </VolDown>
