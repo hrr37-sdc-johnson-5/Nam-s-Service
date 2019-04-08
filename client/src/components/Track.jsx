@@ -73,9 +73,7 @@ class Track extends React.Component{
     let showLyrics;
 
     if (this.state.lyrics) {
-      showLyrics = (<div style ={{margin: '15px 120px 15px 30px'}}>{this.props.song.lyrics}</div>)
-    } else {
-      showLyrics = null;
+      showLyrics =  this.state.lyrics?  (<div style ={{margin: '15px 120px 15px 30px'}}>{this.props.song.lyrics}</div>) : null
     }
 
     return (
