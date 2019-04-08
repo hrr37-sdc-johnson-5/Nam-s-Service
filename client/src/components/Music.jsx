@@ -57,7 +57,6 @@ playTrack(){
     this.setState({ play: false, pause: true })
     this.state.audio.pause();
   }
-
 }
 
 volumeDown(){
@@ -175,7 +174,7 @@ const Wrapper = styled.section`
   background: #3858AD;
   color: #F8EAEB;
   width: 400px;
-  height: auto;
+  height: 1000px;
   font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 `
 const Links = styled.a`
@@ -191,17 +190,17 @@ const VolDown = styled.button`
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 3;
-    background-image: url("https://cdn2.iconfinder.com/data/icons/media-controls-5/100/vol_down-512.png");
-    background-size: 15px;
-    display: inline-block;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 3px;
-    width: 20px;
-    height: 20px;
-    content:"";
-    line-height: 0;
-    padding: 0;
+  background-image: url("https://cdn2.iconfinder.com/data/icons/media-controls-5/100/vol_down-512.png");
+  background-size: 15px;
+  display: inline-block;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 3px;
+  width: 20px;
+  height: 20px;
+  content:"";
+  line-height: 0;
+  padding: 0;
 `;
 
 const VolUp = styled.button`
