@@ -22,7 +22,7 @@ app.get('/media/:id', (req,res) =>{
   })
 })
 
-var port = 3000;
+var port = 3002;
 
 app.listen(port, ()=> {
   console.log(`Listening to port ${port}`)
