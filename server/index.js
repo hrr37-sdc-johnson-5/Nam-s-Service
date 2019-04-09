@@ -25,6 +25,10 @@ app.get('/media/:id', (req,res) =>{
   })
 })
 
+app.get('/*', (req, res) => {
+  res.sendFile(DIST_DIR + "/index.html")
+})
+
 var port = 3002;
 
 app.listen(port, ()=> {

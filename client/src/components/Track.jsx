@@ -28,7 +28,7 @@ const Links = styled.a`
   color: #E9D3B3;
   cursor: pointer;
   // font-variant: petite-caps;
-  font: 20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font: 16px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-decoration: underline;
   :hover {
     color:#6591E2;
