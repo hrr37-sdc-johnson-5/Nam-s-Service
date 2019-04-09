@@ -67,7 +67,7 @@ volumeUp(){
   }
 
 get(){
-  $.get('/media/1', (data) => {
+  $.get('http://localhost:3002/media/1', (data) => {
     this.setState({
       artist:data[0].artist,
       album: data[0].album,
