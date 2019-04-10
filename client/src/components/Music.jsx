@@ -31,7 +31,7 @@ class Music extends React.Component {
   this.handleSlider = this.handleSlider.bind(this)
 }
 componentDidMount(){
-  this.get();
+  this.get(window.location.pathname);
   var intervalId = setInterval(this.currentTrackTime, 1000);
   this.setState({intervalId: intervalId});
 }
@@ -66,8 +66,13 @@ volumeUp(){
     this.state.audio.volume += .1
   }
 
-get(){
-  $.get('/media/1', (data) => {
+get(albumId){
+
+  if(albumId.length === 1) {
+    albumId = '/1';
+  }
+
+  $.get(`http://localhost:3002/media${albumId}`, (data) => {
     this.setState({
       artist:data[0].artist,
       album: data[0].album,
@@ -169,15 +174,14 @@ const SongTitle =styled.div`
   grid-row-start: 1;
   grid-row-end: 2;
   justify-self: center;
-  font-size: 18px;
-
+  font-size: 11px;
 `
 const Wrapper = styled.section`
   background: #3858AD;
   color: #F8EAEB;
   width: 400px;
   height: 1000px;
-  font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 `
 const Links = styled.a`
   color: #6591E2;
