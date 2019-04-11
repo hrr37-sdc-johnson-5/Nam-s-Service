@@ -37,11 +37,12 @@ const Links = styled.a`
 
 const Lyrics = styled.span`
   margin: auto;
-  font-size: 20px;
+  font-size: 16px;
   float: right;
   text-align: center;
   color:#3858AD;
   cursor: pointer;
+  padding-top: 2.2px;
 
   ${Tracks}:hover & {
     color:#6591E2;

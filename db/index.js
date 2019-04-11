@@ -25,11 +25,16 @@ const seedDB = () => {
     artist: "DerAnaM",
     albumTitle: 'Fancy Electric Cows ',
     album: [
-      {track: "I know that song", url: "https://t4.bcbits.com/stream/aa6994e3bf7d69e603d5591a87ae0b6b/mp3-128/1451147182?p=0&ts=1554829514&t=24ec38b0ea95c51380b6e3131a4f2378d14090f6&token=1554829514_2674b132728dff68b54fdca975155603f044c5a4", lyrics: faker.lorem.paragraph()},
-      {track: "Emo phase", url: "https://t4.bcbits.com/stream/b8973e3485e07a46b062a7fe28fc21d0/mp3-128/2707041858?p=0&ts=1554496726&t=892d9ddabe922ac845c06d7eee07232d0050c808&token=1554496726_5d104e578833869bc86b6ffde97b4507f6dc5863", lyrics: faker.lorem.paragraph()},
-      {track: "Rack Heactor", url: "https://t4.bcbits.com/stream/4ee5936410f3b7698e1c9704aa378177/mp3-128/3490725998?p=0&ts=1554496726&t=b3b266bc1b6f2386c24f5e41b1da34a48eb1ed52&token=1554496726_05450ff97dc2235acb139ef6fce5c45f9d6514f9", lyrics: faker.lorem.paragraph()},
-      {track: "Hulu and rave", url: "http://streaming.tdiradio.com:8000/house.mp3" , lyrics: faker.lorem.paragraph()},
-      {track: "Team Amy is lit", url:"https://t4.bcbits.com/stream/433f368c059111443bb91eeb4fc1ef41/mp3-128/1446101469?p=0&ts=1554496886&t=7ce79b87bfdf5eba517c1ba971d2548ddf8ac062&token=1554496886_1006bc3b47a063ab69bd5c5c98865a703e1eb1e0", lyrics: faker.lorem.paragraph()}
+      {track: "MidSummer Madness", url: "https://s3.amazonaws.com/namfecproject/88RISING-+Midsummer+Madness+(Official+Music+Video).mp3", lyrics: faker.lorem.paragraph()},
+      {track: "Slide", url: "https://s3.amazonaws.com/namfecproject/Calvin+Harris+-+Slide+(Official+Audio)+ft.+Frank+Ocean%2C+Migos.mp3", lyrics: faker.lorem.paragraph()},
+      {track: "The Way I Am", url: "https://s3.amazonaws.com/namfecproject/Charlie+Puth+-+The+Way+I+Am+%5BOfficial+Lyric+Video%5D.mp3", lyrics: faker.lorem.paragraph()},
+      {track: "Hold My Girl", url: "https://s3.amazonaws.com/namfecproject/George+Ezra+-+Hold+My+Girl+(Lyric+Video).mp3" , lyrics: faker.lorem.paragraph()},
+      {track: "I'm Yours Forever", url:"https://s3.amazonaws.com/namfecproject/Im+Yours+Forever+-+Tetris+Effect+-+E3+2018+Announce+Trailer+Song.mp3", lyrics: faker.lorem.paragraph()},
+      {track: "1950", url: "https://s3.amazonaws.com/namfecproject/King+Princess+-+1950.mp3", lyrics: faker.lorem.paragraph()},
+      {track: "Want", url: "https://s3.amazonaws.com/namfecproject/Night+Tales+-+Want+Ft.+Kimono+(Official+Lyric+Video).mp3", lyrics: faker.lorem.paragraph()},
+      {track: "Stay", url: "https://s3.amazonaws.com/namfecproject/Post+Malone+-+Stay+(Lyrics).mp3", lyrics: faker.lorem.paragraph()},
+      {track: "Hair Too Long", url: "https://s3.amazonaws.com/namfecproject/The+Vamps+-+Hair+Too+Long.mp3" , lyrics: faker.lorem.paragraph()},
+      {track: "Bloom", url:"https://s3.amazonaws.com/namfecproject/Troye+Sivan+-+Bloom+(Lyric+Video).mp3", lyrics: faker.lorem.paragraph()}
     ],
     artistDescription: faker.lorem.paragraph(),
     coverArt: faker.image.imageUrl()
@@ -38,7 +43,7 @@ const seedDB = () => {
     if (err) return handleError(err)
   });
 
-  for (let i = 2; i < 52; i++) {
+  for (let i = 2; i < 103; i++) {
     let data = new Album({
       id: i,
       artist: faker.random.words(2),
@@ -48,6 +53,9 @@ const seedDB = () => {
           {track: faker.random.words(4), lyrics: faker.lorem.paragraph()},
           {track: faker.random.words(2), lyrics: faker.lorem.paragraph()},
           {track: faker.random.words(3), lyrics: faker.lorem.paragraph()},
+          {track: faker.random.words(5), lyrics: faker.lorem.paragraph()},
+          {track: faker.random.words(5), lyrics: faker.lorem.paragraph()},
+          {track: faker.random.words(5), lyrics: faker.lorem.paragraph()},
           {track: faker.random.words(5), lyrics: faker.lorem.paragraph()}
         ],
       artistDescription: faker.lorem.paragraph(),

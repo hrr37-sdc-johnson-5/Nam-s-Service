@@ -32,7 +32,7 @@ class Music extends React.Component {
 }
 componentDidMount(){
   this.get(window.location.pathname);
-  var intervalId = setInterval(this.currentTrackTime, 1000);
+  var intervalId = setInterval(this.currentTrackTime, 10);
   this.setState({intervalId: intervalId});
 }
 componentWillUnmount() {
@@ -94,23 +94,25 @@ handleSlider(e){
 }
 
 changeTrack(e){
-  this.state.audio.pause();
-  this.setState({
-    play: false,
-    pause: true,
-    currentTrack: this.state.album[e.target.id].track,
-    audio: new Audio(this.state.album[e.target.id].url),
-    url:this.state.album[e.target.id].url
-  })
-
+  if (this.state.album[e.target.id].track !== this.state.currentTrack) {
+    this.state.audio.pause();
+    this.setState({
+      play: false,
+      pause: true,
+      currentTrack: this.state.album[e.target.id].track,
+      audio: new Audio(this.state.album[e.target.id].url),
+      url:this.state.album[e.target.id].url
+    })
+  }
 
 }
 
 
 render() {
 
-  let songDuration = (parseInt(this.state.audio.duration/60))+":"+
-  (parseInt(((this.state.audio.duration/60)-(parseInt(this.state.audio.duration/60)))*60)) || '0:00';
+  const duration = (parseInt(((this.state.audio.duration/60)-(parseInt(this.state.audio.duration/60)))*60));
+  const seconds = duration < 10? "0" + duration : duration;
+  let songDuration = (parseInt(this.state.audio.duration/60))+":"+ seconds;
 
   return (
     <Wrapper>
