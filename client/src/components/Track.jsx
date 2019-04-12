@@ -28,7 +28,7 @@ const Links = styled.a`
   color: #E9D3B3;
   cursor: pointer;
   // font-variant: petite-caps;
-  font: 16px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font: 13px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-decoration: underline;
   :hover {
     color:#6591E2;
@@ -37,12 +37,12 @@ const Links = styled.a`
 
 const Lyrics = styled.span`
   margin: auto;
-  font-size: 16px;
+  font-size: 13px;
   float: right;
   text-align: center;
   color:#3858AD;
   cursor: pointer;
-  padding-top: 2.2px;
+  padding-top: 5px;
 
   ${Tracks}:hover & {
     color:#6591E2;

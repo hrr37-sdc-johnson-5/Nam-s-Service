@@ -118,7 +118,7 @@ render() {
     <Wrapper>
       <br></br>
       <Title>{this.state.albumTitle}<br></br>
-        <div style = {{fontSize: "20px"}}>By <Links>{this.state.artist}</Links></div>
+        <div style = {{fontSize: "15px"}}>By <Links>{this.state.artist}</Links></div>
       </Title>
       <MediaContainer>
         <SongTitle> {this.state.currentTrack}&nbsp;&nbsp;&nbsp;&nbsp;{this.state.time}/{songDuration}</SongTitle>
@@ -127,7 +127,7 @@ render() {
         <VolDown onClick={this.volumeDown}> </VolDown>
         <VolUp onClick={this.volumeUp}></VolUp><br></br>
       </MediaContainer>
-      <Descp>Support the band!: Buy the album <Links>here</Links></Descp>
+      <Descp>Support the band! Buy the album <Links>here</Links></Descp>
       <SongList album = {this.state.album} changeTrack = {this.changeTrack}/>
 
       <Descp>Additional Info: <br></br><br></br> {this.state.description}</Descp>
@@ -182,8 +182,9 @@ const Wrapper = styled.section`
   background: #3858AD;
   color: #F8EAEB;
   width: 400px;
-  height: 1000px;
+  height: auto;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
 `
 const Links = styled.a`
   color: #6591E2;
@@ -255,8 +256,8 @@ const PlaySymbol = styled.div`
 `
 
 const Title = styled.h1`
-  font: normal 2.5em 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  margin: 0px 10px 10px 10px;
+  font: normal 2em 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 15px 10px 10px 10px;
 `
 
 export default Music;
