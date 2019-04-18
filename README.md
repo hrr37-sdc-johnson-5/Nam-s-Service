@@ -1,39 +1,13 @@
-# Project Name
 
-> Project description
+GET - /media/:id
 
-## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+POST - /media
+data - {track: "MidSummer Madness", url: "https://s3.amazonaws.com/namfecproject/88RISING-+Midsummer+Madness+(Official+Music+Video).mp3", lyrics: faker.lorem.paragraph()}
 
-## Table of Contents
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+PUT - /media/:id
+data - {track}
 
-## Usage
 
-> Some usage instructions
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
-
-## Development
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install -g webpack
-npm install
-```
-
+DELETE - /media/:id
