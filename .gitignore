@@ -27,3 +27,6 @@ client/dist/bundle.js
 #Config files containing sesitive data
 config.js
 
+#Csv files
+db/albums.csv
+db/tracks.csv

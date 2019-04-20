@@ -1,8 +1,8 @@
 var faker = require ('faker');
 var fs = require('fs');
-const { Parser } = require('json2csv');
-var fields = ['artist', 'albumTitle', 'album', 'artistDescription'];
-let count = 10;
+var csvWriter = require('csv-write-stream');
+var writer = csvWriter();
+var generateTracks = require('./tracks-generator.js');
 
 var generateStr = () => {
   let str = [];
@@ -12,47 +12,23 @@ var generateStr = () => {
   return str.join(',');
 }
 
-var generateData = () => {
-  let data = [];
-  for(let i = 0; i<10; i++){
-    data.push({
+var generateAlbums = () => {
+  console.time('timing seed');
+
+  writer.pipe(fs.createWriteStream('albums.csv'))
+  for(let i = 0; i<1000000; i++){
+    var data = {
       id:i,
       artist: faker.random.words(2),
       albumTitle: faker.random.words(2),
       album: generateStr(),
       artistDescription: faker.lorem.paragraph()
-    });
+    };
+    writer.write(data);
   }
-  return data;
-};
+  writer.end();
+  console.timeEnd('timing seed');
+}
 
-var createFile = () => {
-  fs.writeFile(`./data/${count}data.json`, generateData(), 'utf8', ()=> {
-    console.log(`${count}data.json`);
-    count --;
-    if(count > 0) {
-      createFile();
-    }
-  });
-};
-
-//createFile();
-
-
-
-var createCsvFile = () => {
-  const json2csvParser = new Parser({ fields });
-  const csv = json2csvParser.parse(generateData());
-  fs.appendFile(`./data.csv`, csv, 'utf8', ()=> {
-    console.log(`${count} done`);
-    count --;
-    if(count > 0) {
-      createCsvFile();
-    }
-  });
-};
-
-createCsvFile();
-
-
-
+generateAlbums();
+generateTracks();
