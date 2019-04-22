@@ -4,26 +4,22 @@ var csvWriter = require('csv-write-stream');
 var writer = csvWriter();
 var generateTracks = require('./tracks-generator.js');
 
-var generateStr = () => {
-  let str = [];
-  for(var i = faker.random.number({min:0, max:9}); i<faker.random.number({min:9, max:16}); i++) {
-    str.push(i);
-  }
-  return str.join(',');
-}
+var getData = () => {
+  let str = [0, 1,2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 , 14, 15];
+  return   {
+    artist: faker.lorem.words(2),
+    albumTitle: faker.lorem.words(2),
+    album:  str.slice(Math.floor(Math.random() * 15)),
+    artistDescription: faker.lorem.paragraph()
+  };
+};
 
 var generateAlbums = () => {
   console.time('timing seed');
-
   writer.pipe(fs.createWriteStream('albums.csv'))
-  for(let i = 0; i<1000000; i++){
-    var data = {
-      id:i,
-      artist: faker.random.words(2),
-      albumTitle: faker.random.words(2),
-      album: generateStr(),
-      artistDescription: faker.lorem.paragraph()
-    };
+  for(let i = 0; i<10000000; i++){
+    var data = getData();
+    data.id = i;
     writer.write(data);
   }
   writer.end();
