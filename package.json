@@ -10,8 +10,10 @@
   "scripts": {
     "build": "webpack -d --config webpack.config.js --watch",
     "start": "nodemon server/index.js",
-    "seed": "node db/seedDB.js",
-    "test": "jest"
+    "seed": "psql postgres < schema.sql",
+    "test": "jest",
+    "server:start":"pg_ctl -D /usr/local/var/postgres start",
+    "server:stop":"pg_ctl -D /usr/local/var/postgres stop"
   },
   "dependencies": {
     "@babel/cli": "^7.2.3",

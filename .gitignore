@@ -28,5 +28,6 @@ client/dist/bundle.js
 config.js
 
 #Csv files
-db/albums.csv
-db/tracks.csv
+/db/albums.csv
+/db/tracks.csv
+

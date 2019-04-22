@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 
 
+
 app.get('/media/:id', (req,res) =>{
   var id = req.params.id;
 
@@ -23,6 +24,16 @@ app.get('/media/:id', (req,res) =>{
 
     res.json(data)
   })
+})
+app.get('/media', (req,res) =>{
+
+  db.none(`SELECT * FROM albums`)
+  .then((data) => {
+    console.log(data.length);
+  })
+  .catch(error => {
+      console.log(error);
+  });
 })
 
 app.get('/*', (req, res) => {
