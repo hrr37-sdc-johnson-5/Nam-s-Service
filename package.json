@@ -10,8 +10,11 @@
   "scripts": {
     "build": "webpack -d --config webpack.config.js --watch",
     "start": "nodemon server/index.js",
-    "seed": "node db/seedDB.js",
-    "test": "jest"
+    "seed": "psql postgres < schema.sql",
+    "test": "jest",
+    "server:start":"pg_ctl -D /usr/local/var/postgres start",
+    "server:stop":"pg_ctl -D /usr/local/var/postgres stop",
+    "generate-data":"node --max-old-space-size=8192 ./db/data-generator.js"
   },
   "dependencies": {
     "@babel/cli": "^7.2.3",
@@ -19,12 +22,14 @@
     "babel-jest": "^24.5.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
+    "csv-write-stream": "^2.0.0",
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "install": "^0.12.2",
     "jquery": "^3.3.1",
     "mongoose": "^5.4.20",
     "nodemon": "^1.18.10",
+    "pg-promise": "^8.6.5",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-motion": "^0.5.2",
