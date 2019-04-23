@@ -16,6 +16,6 @@ CREATE TABLE tracks (
       lyrics varchar(500)
 );
 
-\COPY albums(artist, albumTitle, album, artistDescription, id) FROM '/Users/druthipolisetty/Documents/Hack Reactor/systems-design-phase/Nam-s-Service/db/albums.csv' DELIMITER ',' CSV HEADER;
-\COPY tracks(track_id, url, lyrics) FROM '/Users/druthipolisetty/Documents/Hack Reactor/systems-design-phase/Nam-s-Service/db/tracks.csv' DELIMITER ',' CSV HEADER;
+\COPY albums(artist, albumTitle, album, artistDescription, id) FROM '/Users/druthipolisetty/Documents/Hack Reactor/systems-design-phase/Nam-s-Service/albums.csv' DELIMITER ',' CSV HEADER;
+\COPY tracks(track_id, url, lyrics) FROM '/Users/druthipolisetty/Documents/Hack Reactor/systems-design-phase/Nam-s-Service/tracks.csv' DELIMITER ',' CSV HEADER;
 
