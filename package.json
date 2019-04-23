@@ -13,7 +13,8 @@
     "seed": "psql postgres < schema.sql",
     "test": "jest",
     "server:start":"pg_ctl -D /usr/local/var/postgres start",
-    "server:stop":"pg_ctl -D /usr/local/var/postgres stop"
+    "server:stop":"pg_ctl -D /usr/local/var/postgres stop",
+    "generate-data":"node --max-old-space-size=8192 ./db/data-generator.js"
   },
   "dependencies": {
     "@babel/cli": "^7.2.3",
