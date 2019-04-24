@@ -11,10 +11,13 @@
     "build": "webpack -d --config webpack.config.js --watch",
     "start": "nodemon server/index.js",
     "seed": "psql postgres < schema.sql",
+    "seed-cas":"cqlsh < cas-schema.sql",
     "test": "jest",
     "server:start":"pg_ctl -D /usr/local/var/postgres start",
     "server:stop":"pg_ctl -D /usr/local/var/postgres stop",
-    "generate-data":"node --max-old-space-size=8192 ./db/data-generator.js"
+    "generate-data":"node --max-old-space-size=8192 ./db/data-generator.js",
+    "start-cas":"brew services start cassandra",
+    "stop-cas":"brew services stop cassandra"
   },
   "dependencies": {
     "@babel/cli": "^7.2.3",
