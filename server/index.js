@@ -1,7 +1,8 @@
 var express = require ('express');
 var path = require ('path');
 var DIST_DIR = path.join(__dirname, '../client/dist');
-var db = require ('../db/index')
+var db = require ('../db/index');
+var db_cas = require ('../db-cassandra/index');
 var bodyParser =require ('body-parser');
 var cors = require ('cors');
 
@@ -19,22 +20,13 @@ app.use(bodyParser.json())
 
 app.get('/media/:id', (req,res) =>{
   var id = req.params.id;
-
-  db.getData(id, (data) => {
-
-    res.json(data)
+  console.time('get Data');
+  db.getData(id, (err, data) => {
+    console.timeEnd('get Data');
+    res.json(data);
   })
-})
-app.get('/media', (req,res) =>{
+});
 
-  db.none(`SELECT * FROM albums`)
-  .then((data) => {
-    console.log(data.length);
-  })
-  .catch(error => {
-      console.log(error);
-  });
-})
 
 app.get('/*', (req, res) => {
   res.sendFile(DIST_DIR + "/index.html")

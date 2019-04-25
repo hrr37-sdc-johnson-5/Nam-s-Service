@@ -11,7 +11,7 @@ var generateTracks = () => {
   for(let i = 0; i<tracks.length; i++){
     writer.write(tracks[i]);
   }
-  writer.end();
+  // writer.end();
   console.timeEnd('timing tracks');
 }
 

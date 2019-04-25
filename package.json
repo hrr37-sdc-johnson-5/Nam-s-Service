@@ -13,8 +13,8 @@
     "seed": "psql postgres < schema.sql",
     "seed-cas": "cqlsh < cas-schema.sql",
     "test": "jest",
-    "server:start": "pg_ctl -D /usr/local/var/postgres start",
-    "server:stop": "pg_ctl -D /usr/local/var/postgres stop",
+    "start-pg": "pg_ctl -D /usr/local/var/postgres start",
+    "stop-pg": "pg_ctl -D /usr/local/var/postgres stop",
     "generate-data": "node --max-old-space-size=8192 ./db/data-generator.js",
     "start-cas": "brew services start cassandra",
     "stop-cas": "brew services stop cassandra"
