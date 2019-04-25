@@ -14,8 +14,28 @@ db.connect()
         console.log("ERROR:", error.message);
     });
 
+var getData = async (id, callback) => {
+    try {
+        const album = await db.any('SELECT * FROM albums WHERE id = $1', [id]);
+        let track_ids = album[0].album.split(',');
+        var tracks = await Promise.all(track_ids.map(async (track_id) => {
+            const track = await db.any('SELECT * FROM tracks WHERE track_id = $1', [track_id]);
+            return track[0];
+        }));
+        album[0]["tracks"] = tracks;
+        callback(null, album[0]);
+        // success
+    }
+    catch(e) {
+       if(e){
+           console.log(e);
+           callback(e, null);
+       }
+    }
+}
 
-module.exports = db;
+
+module.exports.getData = getData;
 
 
 
