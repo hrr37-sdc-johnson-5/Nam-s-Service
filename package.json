@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "webpack -d --config webpack.config.js --watch",
-    "start": "nodemon server/index.js",
+    "start": "webpack -d --config webpack.config.js --watch & nodemon server/index.js",
     "seed": "psql postgres < schema.sql",
     "seed-cas": "cqlsh < cas-schema.sql",
     "test": "jest",
