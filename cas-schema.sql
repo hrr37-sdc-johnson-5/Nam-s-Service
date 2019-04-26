@@ -14,9 +14,10 @@ CREATE TABLE albums (
 CREATE TABLE tracks (
       track_id INT primary key,
       url varchar,
-      lyrics varchar
+      lyrics varchar,
+      track varchar
 );
 
 COPY albums(artist, albumTitle, album, artistDescription, id) FROM '/Users/druthipolisetty/Documents/Hack Reactor/systems-design-phase/Nam-s-Service/albums.csv' WITH HEADER = TRUE;
-COPY tracks(track_id, url, lyrics) FROM '/Users/druthipolisetty/Documents/Hack Reactor/systems-design-phase/Nam-s-Service/tracks.csv' WITH HEADER = TRUE;
+COPY tracks(track_id, url, lyrics, track) FROM '/Users/druthipolisetty/Documents/Hack Reactor/systems-design-phase/Nam-s-Service/tracks.csv' WITH HEADER = TRUE;
 

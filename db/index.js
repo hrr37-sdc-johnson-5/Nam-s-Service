@@ -22,8 +22,9 @@ var getData = async (id, callback) => {
             const track = await db.any('SELECT * FROM tracks WHERE track_id = $1', [track_id]);
             return track[0];
         }));
-        album[0]["tracks"] = tracks;
-        callback(null, album[0]);
+        album[0].track_ids = track_ids;
+        album[0]["album"] = tracks;
+        callback(null, album);
         // success
     }
     catch(e) {

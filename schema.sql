@@ -11,11 +11,12 @@ CREATE TABLE albums (
 );
 
 CREATE TABLE tracks (
+      track varchar,
       track_id INT primary key,
       url varchar,
       lyrics varchar
 );
 
 \COPY albums(artist, albumTitle, album, artistDescription, id) FROM '/Users/druthipolisetty/Documents/Hack Reactor/systems-design-phase/Nam-s-Service/albums.csv' DELIMITER ',' CSV HEADER;
-\COPY tracks(track_id, url, lyrics) FROM '/Users/druthipolisetty/Documents/Hack Reactor/systems-design-phase/Nam-s-Service/tracks.csv' DELIMITER ',' CSV HEADER;
+\COPY tracks(track, track_id, url, lyrics) FROM '/Users/druthipolisetty/Documents/Hack Reactor/systems-design-phase/Nam-s-Service/tracks.csv' DELIMITER ',' CSV HEADER;
 
