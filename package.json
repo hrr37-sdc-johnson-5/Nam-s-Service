@@ -32,6 +32,7 @@
     "install": "^0.12.2",
     "jquery": "^3.3.1",
     "mongoose": "^5.4.20",
+    "newrelic": "^5.7.0",
     "nodemon": "^1.18.10",
     "pg-promise": "^8.6.5",
     "react": "^16.8.5",
