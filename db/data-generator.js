@@ -18,7 +18,6 @@ var getData = () => {
 var generateAlbumsInChunks = () => {
   if(id < 10000000){
     var data = getData();
-    data.id = id;
     id++;
     writer.write(data, () => {
       generateAlbumsInChunks();
