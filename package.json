@@ -17,7 +17,8 @@
     "stop-pg": "pg_ctl -D /usr/local/var/postgres stop",
     "generate-data": "node --max-old-space-size=8192 ./db/data-generator.js",
     "start-cas": "brew services start cassandra",
-    "stop-cas": "brew services stop cassandra"
+    "stop-cas": "brew services stop cassandra",
+    "artillery":"artillery run hello.yml"
   },
   "dependencies": {
     "@babel/cli": "^7.2.3",
