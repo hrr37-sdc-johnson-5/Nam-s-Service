@@ -1,0 +1,37 @@
+config:
+  target: 'http://localhost:3002'
+  http:
+    pool: 10
+  phases:
+    - duration: 60
+      arrivalRate: 20
+      rampTo: 40
+      name: "PHASE 1"
+    - duration: 120
+      arrivalRate: 40
+      name: "PHASE 2"
+  defaults:
+    headers:
+      x-my-service-auth: '987401838271002188298567'
+  processor: "./helperFunctions.js"
+
+scenarios:
+  - name: "GetRequest"
+    weight: 5
+    flow:
+      - function: "generateRandomID"
+      - get:
+          url: "/media/{{id}}"
+      # - log: "Sent request to /media/{{id}}"
+  - name: "PostRequest"
+    weight: 1
+    flow:
+     - function: "generateRandomData"
+     - post:
+          url: "/media"
+          json:
+            artist: "{{artist}}"
+            albumtitle: "{{albumtitle}}"
+            artistdescription: "{{artistdescription}}"
+            album: "{{album}}"
+

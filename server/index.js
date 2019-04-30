@@ -20,9 +20,9 @@ app.use(bodyParser.json())
 
 app.get('/media/:id', (req,res) =>{
   var id = req.params.id;
-  console.time('get Data');
+  //console.time('get Data');
   db.getData(id, (err, data) => {
-    console.timeEnd('get Data');
+    //console.timeEnd('get Data');
     if(err) {
       res.sendStatus(404);
     }else{
